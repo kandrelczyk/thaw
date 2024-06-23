@@ -2,7 +2,10 @@ use leptos::*;
 use thaw_components::{Fallback, If, OptionComp, Then};
 use thaw_utils::{class_list, mount_style, OptionalMaybeSignal, OptionalProp};
 
-use crate::{dropdown::HasIcon, use_theme, Icon, Theme};
+use crate::{
+    dropdown::HasIcon, use_theme, Dropdown, DropdownPlacement, DropdownTrigger,
+    DropdownTriggerType, Icon, Theme,
+};
 
 #[component]
 pub fn DropdownItem(
@@ -11,6 +14,7 @@ pub fn DropdownItem(
     #[prop(optional, into)] disabled: MaybeSignal<bool>,
     #[prop(optional, into)] class: OptionalProp<MaybeSignal<String>>,
     #[prop(optional, into)] on_click: Option<Callback<ev::MouseEvent>>,
+    #[prop(optional)] children: Option<Children>,
 ) -> impl IntoView {
     mount_style("dropdown-item", include_str!("./dropdown-item.css"));
     let theme = use_theme(Theme::light);
@@ -45,7 +49,7 @@ pub fn DropdownItem(
         callback.call(event);
     };
 
-    view! {
+    let dropdown_item = view! {
         <div
             class=class_list![
                 "thaw-dropdown-item", ("thaw-dropdown-item--disabled", move || disabled.get()),
@@ -68,6 +72,26 @@ pub fn DropdownItem(
                 <Icon icon=icon style="font-size: 18px; margin-right: 8px"/>
             </OptionComp>
             <span style="flex-grow: 1">{label}</span>
+            <If cond=children.is_some()>
+                <Then slot>
+                    <Icon icon=icondata_ai::AiRightOutlined style="margin-left: 8px"/>
+                </Then>
+            </If>
         </div>
+    };
+
+    if children.is_some() {
+        view! {
+            <Dropdown placement=DropdownPlacement::RightStart trigger_type=DropdownTriggerType::Hover>
+                <DropdownTrigger slot>{dropdown_item}</DropdownTrigger>
+                <OptionComp value=children let:children>
+                    {children()}
+                </OptionComp>
+            </Dropdown>
+        }.into_view()
+    } else {
+        dropdown_item.into_view()
     }
 }
+
+

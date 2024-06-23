@@ -33,6 +33,11 @@ view! {
             </DropdownTrigger>
             <DropdownItem on_click=facebook icon=icondata::AiFacebookOutlined label="Facebook"></DropdownItem>
             <DropdownItem on_click=twitter disabled=true icon=icondata::AiTwitterOutlined label="Twitter"></DropdownItem>
+            <DropdownItem label="Submenu">
+                <DropdownItem icon=icondata::AiGithubOutlined label="Github"></DropdownItem>
+                <DropdownItem icon=icondata::AiGitlabOutlined label="Gitlab"></DropdownItem>
+                <DropdownItem disabled=true label="Gitea"></DropdownItem>
+            </DropdownItem>
         </Dropdown>
     </Space>
 }
