@@ -1,5 +1,5 @@
 use crate::{Button, ButtonGroup, LocaleConfig};
-use chrono::{Datelike, Days, Local, Months, NaiveDate};
+use chrono::{Datelike, Days, Local, Months, NaiveDate, Weekday};
 use leptos::{prelude::*, tachys::view::any_view::AnyView};
 use std::{ops::Deref, sync::Arc};
 use thaw_utils::{class_list, mount_style, OptionModel, OptionModelWithValue};
@@ -10,6 +10,7 @@ pub fn Calendar(
     /// selected date.
     #[prop(optional, into)]
     value: OptionModel<NaiveDate>,
+    #[prop(optional, into, default=Weekday::Mon.into())] week_start: OptionModel<Weekday>,
     #[prop(optional, into)] children: Option<CalendarChildrenFn>,
 ) -> impl IntoView {
     mount_style("calendar", include_str!("./calendar.css"));
@@ -33,7 +34,7 @@ pub fn Calendar(
         let show_date_month = show_date.month();
         let mut dates = vec![];
 
-        let first_weekday = locale.get().first_weekday();
+        let first_weekday = week_start.get().unwrap();
         let last_weekday = first_weekday.pred();
 
         let mut current_date = show_date;
@@ -95,6 +96,13 @@ pub fn Calendar(
         });
     };
 
+    let mut weekday = week_start.get().unwrap();
+    let mut days = vec![];
+    for _ in 0..7 {
+        days.push(weekday);
+        weekday = weekday.succ();
+    }
+
     view! {
         <div class=class_list!["thaw-calendar", class]>
             <div class="thaw-calendar__header">
@@ -117,6 +125,12 @@ pub fn Calendar(
                     <Button on_click=today>{move || locale.get().today()}</Button>
                     <Button icon=icondata_ai::AiRightOutlined on_click=next_month />
                 </ButtonGroup>
+            </div>
+            <div class="thaw-calendar__days">
+                {days
+                    .iter()
+                    .map(|d| view! { <div class="that-calendar-day">{format!("{}", d)}</div> })
+                    .collect::<Vec<_>>()}
             </div>
             <div class="thaw-calendar__dates">
 

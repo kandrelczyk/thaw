@@ -17,8 +17,9 @@ view! {
 
 ### Calendar Props
 
-| Name     | Type                          | Default              | Desciption     |
-| -------- | ----------------------------- | -------------------- | -------------- |
-| class    | `MaybeProp<String>`           | `Default::default()` |                |
-| value    | `OptionModel<NaiveDate>`      | `Default::default()` | selected date. |
-| children | `Option<CalendarChildrenFn>>` | `None`               | .              |
+| Name       | Type                          | Default              | Desciption             |
+| ---------- | ----------------------------- | -------------------- | ---------------------- |
+| class      | `MaybeProp<String>`           | `Default::default()` |                        |
+| value      | `OptionModel<NaiveDate>`      | `Default::default()` | selected date.         |
+| week_start | `OptionModel<Weekday>`        | `Weekday:Mon`        | first day of the week. |
+| children   | `Option<CalendarChildrenFn>>` | `None`               |                        |
