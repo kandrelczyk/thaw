@@ -50,6 +50,9 @@ pub fn Input(
     /// Input size width.
     #[prop(optional, into)]
     input_size: Signal<Option<u32>>,
+    /// Maximum lenght of value.
+    #[prop(optional, into)]
+    maxlength: Signal<Option<u32>>,
     #[prop(optional)] input_prefix: Option<InputPrefix>,
     #[prop(optional)] input_suffix: Option<InputSuffix>,
     #[prop(optional, into)] input_style: MaybeProp<String>,
@@ -183,6 +186,7 @@ pub fn Input(
                 disabled=disabled
                 readonly=readonly
                 size=input_size
+                maxlength=maxlength
                 placeholder=move || placeholder.get()
                 node_ref=input_ref
                 style=move || input_style.get()

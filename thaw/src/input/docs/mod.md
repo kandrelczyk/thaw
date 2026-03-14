@@ -1,5 +1,6 @@
 # Input
 
+
 ```rust demo
 let value = RwSignal::new(String::from("o"));
 
@@ -144,6 +145,7 @@ view! {
 | disabled | `Signal<bool>` | `false` | Whether the input is disabled. |
 | readonly | `Signal<bool>` | `false` | Whether the input is readonly. |
 | input_size | `Signal<Option<u32>>` | `None` | The input size width. |
+| maxlength | `Signal<Option<u32>>` | `None` | Maximum length of input. |
 | on_focus | `Option<BoxOneCallback<ev::FocusEvent>>` | `None` | Callback triggered when the input is focussed on. |
 | on_blur | `Option<BoxOneCallback<ev::FocusEvent>>` | `None` | Callback triggered when the input is blurred. |
 | parser | `OptionalProp<BoxOneCallback<String, Option<String>>>` | `None` | Modifies the user input before assigning it to the value. |
