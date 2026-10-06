@@ -55,7 +55,8 @@ pub fn Tab(
                 request_animation_frame(move || {
                     let _ = style.set_property("--thaw-tab__indicator--offset", "0px");
                     let _ = style.set_property("--thaw-tab__indicator--scale", "1");
-                });
+                })
+                .expect("Failed to request animation frame");
             }
         });
         tab_list.on_select(value.get_value());

@@ -1,8 +1,7 @@
 use super::NavDrawerInjection;
 use crate::Icon;
 use leptos::{context::Provider, either::Either, prelude::*};
-use leptos_transition_group::CSSTransition;
-use thaw_utils::class_list;
+use thaw_utils::{class_list, CSSTransition};
 
 #[component]
 pub fn NavCategory(

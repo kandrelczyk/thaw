@@ -1,8 +1,7 @@
 use crate::ConfigInjection;
 use leptos::{context::Provider, prelude::*, tachys::html::node_ref::node_ref};
-use leptos_transition_group::CSSTransition;
 use thaw_components::{use_binder, Follower, FollowerInjection, Teleport, UseBinder};
-use thaw_utils::BoxCallback;
+use thaw_utils::{BoxCallback, CSSTransition};
 
 #[component]
 pub fn Binder<T, FT>(

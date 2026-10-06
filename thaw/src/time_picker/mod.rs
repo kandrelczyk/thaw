@@ -97,7 +97,7 @@ pub fn TimePicker(
         }
         panel_selected_time.set(value.get_untracked());
         is_show_panel.set(true);
-        request_animation_frame(move || {
+        let _ = request_animation_frame(move || {
             if let Some(panel_ref) = panel_ref.get_untracked() {
                 panel_ref.scroll_into_view();
             }

@@ -1,9 +1,8 @@
 use super::{DrawerModalType, DrawerPosition, DrawerSize};
 use crate::ConfigInjection;
 use leptos::{either::Either, ev, prelude::*};
-use leptos_transition_group::CSSTransition;
 use thaw_components::{FocusTrap, Teleport};
-use thaw_utils::{class_list, mount_style, use_lock_html_scroll, Model};
+use thaw_utils::{class_list, mount_style, use_lock_html_scroll, CSSTransition, Model};
 
 #[component]
 pub fn OverlayDrawer(

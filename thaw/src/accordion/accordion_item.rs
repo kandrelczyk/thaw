@@ -1,7 +1,6 @@
 use crate::AccordionInjection;
 use leptos::prelude::*;
-use leptos_transition_group::CSSTransition;
-use thaw_utils::{class_list, mount_style, update, with};
+use thaw_utils::{class_list, mount_style, update, with, CSSTransition};
 
 #[component]
 pub fn AccordionItem(
@@ -72,9 +71,7 @@ pub fn AccordionItem(
                 </button>
             </div>
             <CSSTransition show=is_show_panel name="thaw-accordion-panel">
-                <div class="thaw-accordion-panel">
-                    {children()}
-                </div>
+                <div class="thaw-accordion-panel">{children()}</div>
             </CSSTransition>
         </div>
     }

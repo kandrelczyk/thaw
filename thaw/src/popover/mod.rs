@@ -82,7 +82,7 @@ where
             if let Some(handle) = handle.take() {
                 handle.clear();
             }
-            *handle = set_timeout_with_handle(
+            *handle = set_timeout(
                 move || {
                     is_show_popover.set(false);
                 },
@@ -167,7 +167,11 @@ where
                     on:mouseleave=on_mouse_leave
                 >
                     {children()}
-                    <div class="thaw-popover-surface__angle" style=arrow_style node_ref=arrow_ref></div>
+                    <div
+                        class="thaw-popover-surface__angle"
+                        style=arrow_style
+                        node_ref=arrow_ref
+                    ></div>
                 </div>
             </Follower>
         </crate::_binder::Binder>

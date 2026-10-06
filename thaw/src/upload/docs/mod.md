@@ -1,5 +1,6 @@
 # Upload
 
+
 ```rust demo
 use send_wrapper::SendWrapper;
 
@@ -13,7 +14,7 @@ let custom_request = move |file_list: SendWrapper<FileList>| {
 };
 
 view!{
-    <Upload>
+    <Upload class="test">
         <Button>
             "upload"
         </Button>

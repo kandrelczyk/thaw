@@ -9,6 +9,7 @@ mod optional_prop;
 mod signals;
 mod throttle;
 mod time;
+mod transition_group;
 
 pub use callback::*;
 pub use dom::*;
@@ -19,3 +20,4 @@ pub use optional_prop::OptionalProp;
 pub use signals::*;
 pub use throttle::throttle;
 pub use time::now_date;
+pub use transition_group::*;

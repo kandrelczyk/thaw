@@ -1,7 +1,6 @@
 use super::{DrawerPosition, DrawerSize};
 use leptos::prelude::*;
-use leptos_transition_group::CSSTransition;
-use thaw_utils::{class_list, mount_style, Model};
+use thaw_utils::{class_list, mount_style, CSSTransition, Model};
 
 #[component]
 pub fn InlineDrawer(

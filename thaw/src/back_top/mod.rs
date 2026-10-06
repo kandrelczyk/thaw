@@ -1,10 +1,9 @@
 use crate::{ConfigInjection, Icon};
 use leptos::{either::Either, ev, html, prelude::*};
-use leptos_transition_group::CSSTransition;
 use thaw_components::Teleport;
 use thaw_utils::{
     add_event_listener, class_list, get_scroll_parent_element, mount_style, BoxCallback,
-    EventListenerHandle,
+    CSSTransition, EventListenerHandle,
 };
 
 #[component]
@@ -42,7 +41,7 @@ pub fn BackTop(
             return;
         };
 
-        request_animation_frame(move || {
+        let _ = request_animation_frame(move || {
             let scroll_el = get_scroll_parent_element(&placeholder_el)
                 .unwrap_or_else(|| document().document_element().unwrap());
 

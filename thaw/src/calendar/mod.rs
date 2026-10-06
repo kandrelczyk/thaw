@@ -2,7 +2,7 @@ use crate::{Button, ButtonGroup, LocaleConfig};
 use chrono::{Datelike, Days, Local, Months, NaiveDate};
 use leptos::{prelude::*, tachys::view::any_view::AnyView};
 use std::{ops::Deref, sync::Arc};
-use thaw_utils::{class_list, mount_style, OptionModel, OptionModelWithValue};
+use thaw_utils::{OptionModel, OptionModelWithValue, class_list, mount_style};
 
 #[component]
 pub fn Calendar(

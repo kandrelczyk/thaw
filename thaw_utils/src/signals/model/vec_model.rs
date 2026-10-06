@@ -194,7 +194,7 @@ where
     T: Send + Sync,
     S: Storage<T> + Storage<ArcField<T>> + Storage<Option<T>> + Storage<Vec<T>>,
     Subfield<Inner, Prev, T>: Clone,
-    Inner: StoreField<Value = Prev> + Send + Sync + 'static,
+    Inner: StoreField<Value = Prev> + Send + Sync + leptos::prelude::IsDisposed + 'static,
     Prev: 'static,
 {
     fn from(subfield: Subfield<Inner, Prev, T>) -> Self {
@@ -224,7 +224,7 @@ where
     T: Send + Sync,
     S: Storage<T> + Storage<ArcField<Option<T>>> + Storage<Option<T>> + Storage<Vec<T>>,
     Subfield<Inner, Prev, Option<T>>: Clone,
-    Inner: StoreField<Value = Prev> + Send + Sync + 'static,
+    Inner: StoreField<Value = Prev> + Send + Sync + leptos::prelude::IsDisposed + 'static,
     Prev: 'static,
 {
     fn from(subfield: Subfield<Inner, Prev, Option<T>>) -> Self {
@@ -254,7 +254,7 @@ where
     T: Send + Sync,
     S: Storage<T> + Storage<ArcField<Vec<T>>> + Storage<Option<T>> + Storage<Vec<T>>,
     Subfield<Inner, Prev, Vec<T>>: Clone,
-    Inner: StoreField<Value = Prev> + Send + Sync + 'static,
+    Inner: StoreField<Value = Prev> + Send + Sync + leptos::prelude::IsDisposed + 'static,
     Prev: 'static,
 {
     fn from(subfield: Subfield<Inner, Prev, Vec<T>>) -> Self {

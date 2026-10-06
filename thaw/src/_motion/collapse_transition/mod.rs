@@ -1,6 +1,5 @@
 use leptos::prelude::*;
-use leptos_transition_group::CSSTransition;
-use thaw_utils::mount_style;
+use thaw_utils::{mount_style, CSSTransition};
 use web_sys::HtmlElement;
 
 #[component]

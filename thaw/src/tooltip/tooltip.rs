@@ -43,7 +43,7 @@ where
             if let Some(handle) = handle.take() {
                 handle.clear();
             }
-            *handle = set_timeout_with_handle(
+            *handle = set_timeout(
                 move || {
                     is_show_content.set(false);
                 },
@@ -94,7 +94,11 @@ where
                     on:mouseleave=on_mouse_leave
                 >
                     {move || { content.as_ref().map(|c| c.get()).unwrap_or_default() }}
-                    <div class="thaw-tooltip-content__angle" style=arrow_style node_ref=arrow_ref></div>
+                    <div
+                        class="thaw-tooltip-content__angle"
+                        style=arrow_style
+                        node_ref=arrow_ref
+                    ></div>
                 </div>
             </Follower>
         </crate::_binder::Binder>

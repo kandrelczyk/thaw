@@ -11,7 +11,7 @@ members = [
 exclude = ["examples"]
 
 [workspace.package]
-rust-version = "1.79"
+rust-version = "1.88"
 
 [workspace.dependencies]
 thaw = { version = "0.5.0-beta", path = "./thaw" }
@@ -20,10 +20,14 @@ thaw_macro = { version = "0.1.0", path = "./thaw_macro" }
 thaw_utils = { version = "0.2.0-beta", path = "./thaw_utils" }
 
 # leptos
-leptos = { version = "0.8.5" }
-leptos_meta = { version = "0.8.5" }
-leptos_router = { version = "0.8.5" }
-reactive_stores = { version = "0.2.5" }
+leptos = { path = "../leptos/leptos" }
+leptos_meta = { path = "../leptos/meta" }
+leptos_router = { path = "../leptos/router" }
+reactive_stores = { path = "../leptos/reactive_stores" }
+#leptos = { version = "0.9.0-alpha" }
+#leptos_meta = { version = "0.9.0-alpha" }
+#leptos_router = { version = "0.9.0-alpha" }
+#reactive_stores = { version = "0.5.0-alpha" }
 
 # web
 wasm-bindgen = { version = "0.2.100" }
